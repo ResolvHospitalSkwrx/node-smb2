@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SMB2Forge = void 0;
 const smb2_message_1 = __importDefault(require("./smb2-message"));
+const messages_1 = require("../messages");
 exports.SMB2Forge = {
     request(messageName, params, connection, cb) {
-        const msg = require('../messages/' + messageName);
+        const msg = (0, messages_1.getMessage)(messageName);
         const smbMessage = msg.generate(connection, params);
         sendNetBiosMessage(connection, smbMessage);
         getResponse(connection, smbMessage.getHeaders().MessageId, msg.parse(connection, cb));

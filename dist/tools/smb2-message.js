@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SMB2Message = void 0;
+const structures_1 = require("../structures");
 const protocolId = Buffer.from([0xfe, 'S'.charCodeAt(0), 'M'.charCodeAt(0), 'B'.charCodeAt(0)]);
 const headerTranslates = {
     Command: {
@@ -127,7 +128,7 @@ function readHeaders(message, buffer) {
         }
         offset += length;
     }
-    message.structure = require('../structures/' + message.headers.Command.toLowerCase());
+    message.structure = (0, structures_1.getStructure)(message.headers.Command.toLowerCase());
 }
 function writeHeaders(message, buffer) {
     const header = (message.isAsync ? headerASync : headerSync)(message.ProcessId, message.SessionId);
@@ -199,7 +200,7 @@ class SMB2Message {
         for (const key in obj) {
             this.headers[key] = obj[key];
         }
-        this.structure = require('../structures/' + this.headers.Command.toLowerCase());
+        this.structure = (0, structures_1.getStructure)(this.headers.Command.toLowerCase());
     }
     getHeaders() {
         return this.headers;

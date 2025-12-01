@@ -1,5 +1,6 @@
 import SMB2Message from './smb2-message';
 import { SMB2Connection, SMB2Callback } from '../types';
+import { getMessage } from '../messages';
 
 export interface MessageModule {
   generate: (connection: SMB2Connection, params: any) => SMB2Message;
@@ -8,7 +9,7 @@ export interface MessageModule {
 
 export const SMB2Forge = {
   request(messageName: string, params: any, connection: SMB2Connection, cb: SMB2Callback): void {
-    const msg: MessageModule = require('../messages/' + messageName);
+    const msg: MessageModule = getMessage(messageName) as MessageModule;
     const smbMessage = msg.generate(connection, params);
 
     sendNetBiosMessage(connection, smbMessage);

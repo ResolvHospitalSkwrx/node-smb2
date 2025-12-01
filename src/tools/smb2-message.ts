@@ -1,4 +1,5 @@
 import { SMB2MessageOptions, SMB2Headers, SMB2Structure, SMB2Connection } from '../types';
+import { getStructure } from '../structures';
 
 const protocolId = Buffer.from([0xfe, 'S'.charCodeAt(0), 'M'.charCodeAt(0), 'B'.charCodeAt(0)]);
 
@@ -147,7 +148,7 @@ function readHeaders(message: SMB2Message, buffer: Buffer): void {
     }
     offset += length;
   }
-  message.structure = require('../structures/' + (message.headers.Command as string).toLowerCase());
+  message.structure = getStructure((message.headers.Command as string).toLowerCase());
 }
 
 function writeHeaders(message: SMB2Message, buffer: Buffer): number {
@@ -241,7 +242,7 @@ export class SMB2Message {
     for (const key in obj) {
       (this.headers as any)[key] = (obj as any)[key];
     }
-    this.structure = require('../structures/' + (this.headers.Command as string).toLowerCase());
+    this.structure = getStructure((this.headers.Command as string).toLowerCase());
   }
 
   getHeaders(): SMB2Headers {
