@@ -1,0 +1,1 @@
+{"version":3,"file":"exists.d.ts","sourceRoot":"","sources":["../../src/api/exists.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,kBAAkB,EAAE,MAAM,0BAA0B,CAAC;AAC9D,OAAO,EAAE,YAAY,EAAE,MAAM,UAAU,CAAC;AAIxC,MAAM,CAAC,OAAO,UAAU,MAAM,CAAC,IAAI,EAAE,kBAAkB,EAAE,IAAI,EAAE,MAAM,EAAE,EAAE,EAAE,YAAY,CAAC,OAAO,CAAC,GAAG,IAAI,CAUtG"}

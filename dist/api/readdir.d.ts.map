@@ -1,0 +1,1 @@
+{"version":3,"file":"readdir.d.ts","sourceRoot":"","sources":["../../src/api/readdir.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,kBAAkB,EAAE,MAAM,0BAA0B,CAAC;AAC9D,OAAO,EAAE,YAAY,EAAE,MAAM,UAAU,CAAC;AAyBxC,MAAM,CAAC,OAAO,UAAU,OAAO,CAAC,IAAI,EAAE,kBAAkB,EAAE,IAAI,EAAE,MAAM,EAAE,EAAE,EAAE,YAAY,CAAC,MAAM,EAAE,CAAC,GAAG,IAAI,CAOxG"}

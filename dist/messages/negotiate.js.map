@@ -1,0 +1,1 @@
+{"version":3,"file":"negotiate.js","sourceRoot":"","sources":["../../src/messages/negotiate.ts"],"names":[],"mappings":";;;;;AAAA,yEAAgD;AAChD,+DAAuC;AAGvC,kBAAe,IAAA,iBAAO,EAAC;IACrB,QAAQ,CAAC,UAA0B;QACjC,OAAO,IAAI,sBAAW,CAAC;YACrB,OAAO,EAAE;gBACP,OAAO,EAAE,WAAW;gBACpB,SAAS,EAAE,UAAU,CAAC,SAAS;aAChC;SACF,CAAC,CAAC;IACL,CAAC;CACF,CAAC,CAAC"}

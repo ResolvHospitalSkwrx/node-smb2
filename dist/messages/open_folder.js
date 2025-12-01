@@ -1,0 +1,30 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const smb2_message_1 = __importDefault(require("../tools/smb2-message"));
+const message_1 = __importDefault(require("../tools/message"));
+exports.default = (0, message_1.default)({
+    generate(connection, params) {
+        const buffer = Buffer.from(params.path, 'ucs2');
+        return new smb2_message_1.default({
+            headers: {
+                Command: 'CREATE',
+                SessionId: connection.SessionId,
+                TreeId: connection.TreeId,
+                ProcessId: connection.ProcessId,
+            },
+            request: {
+                Buffer: buffer,
+                FileAttributes: 0x00000000,
+                ShareAccess: 0x00000007,
+                CreateDisposition: 0x00000001,
+                CreateOptions: 0x00200021,
+                NameOffset: 0x0078,
+                CreateContextsOffset: 0x007a + buffer.length,
+            },
+        });
+    },
+});
+//# sourceMappingURL=open_folder.js.map
